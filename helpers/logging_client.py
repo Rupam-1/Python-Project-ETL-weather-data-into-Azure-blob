@@ -1,22 +1,5 @@
-#
-#
-#
-#  Copyright (C) 2020 IHS Markit.
-#  All Rights Reserved
-#
-#
-#  NOTICE: All information contained herein is, and remains
-#  the property of IHS Markit and its suppliers,
-#  if any. The intellectual and technical concepts contained
-#  herein are proprietary to IHS Markit and its suppliers
-#  and may be covered by U.S. and Foreign Patents, patents in
-#  process, and are protected by trade secret or copyright law.
-#  Dissemination of this information or reproduction of this material
-#  is strictly forbidden unless prior written permission is obtained
-#  from IHS Markit.
-#
-#
-#
+## This file is used for creating log file inside the directory
+
 import logging
 from datetime import datetime
 import os
@@ -58,11 +41,13 @@ class LoggerManager(object):
             return logging.getLogger()
         elif name not in LoggerManager._loggers.keys():
             dt = datetime.today().strftime("%Y%m%d")
+
+            repo_directory = os.path.dirname(os.path.abspath(__file__))
+            log_directory = os.path.join(repo_directory, "weather-data")
             log_filename = os.path.join(
-                "/opt/ihsm/logs/{}/{}_daily_{}_{}_run.log".format(
-                    account, name, dt, crontimeinhhmmss
-                )
+                log_directory, f"{name}_daily_{dt}_{crontimeinhhmmss}_run.log"
             )
+            
             os.makedirs(os.path.dirname(log_filename), exist_ok=True)
             logging.basicConfig(
                 handlers=[

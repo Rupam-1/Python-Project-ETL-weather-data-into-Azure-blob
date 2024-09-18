@@ -1,3 +1,6 @@
+## This file contains all the required packages for python to run the script
+## Needed to be manually installed using "pip install" in terminal
+
 azure-storage-blob==12.10.0b1
 azure-cosmos==4.2.0
 azure-cosmosdb-table==1.0.6
