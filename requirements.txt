@@ -1,0 +1,7 @@
+azure-storage-blob==12.10.0b1
+azure-cosmos==4.2.0
+azure-cosmosdb-table==1.0.6
+pandas==2.2.2
+requests==2.32.3
+flake8==7.1.1
+black==24.8.0
