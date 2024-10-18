@@ -1,0 +1,14 @@
+[2024-10-18T07:55:44] INFO [weather.get_connection:61] Establishing connection to Azure Blob using account name: rupamtesting
+[2024-10-18T07:55:44] INFO [weather.get_connection:70] Connection successful to blob
+[2024-10-18T07:55:46] INFO [weather.create_container:92] The container with the given name: current-weather already exists. Not creating again.
+[2024-10-18T07:55:46] INFO [weather.get_data:42] Fetching weather data from the url : https://api.openweathermap.org/data/2.5/weather
+[2024-10-18T07:55:46] INFO [weather.get_data:46] Response status: 200
+[2024-10-18T07:55:47] INFO [weather.get_data:47] Data fetched successfully...
+[2024-10-18T07:55:47] INFO [weather.get_data:49] Length of data : 13
+[2024-10-18T07:55:47] INFO [weather.upload_azure:137] Length of records is: 13
+[2024-10-18T07:55:47] INFO [weather.write_csv:44] Data writing in a JSON file
+[2024-10-18T07:55:47] INFO [weather.write_csv:48] Data successfully written to ./files/weather/18.10.2024_weather.csv
+[2024-10-18T07:55:47] INFO [weather.create_container:92] The container with the given name: current-weather already exists. Not creating again.
+[2024-10-18T07:55:47] INFO [weather.upload_file:133] Uploaded the file into blob - weather/18.10.2024_weather.csv
+[2024-10-18T07:55:48] INFO [weather.upload_file:133] Uploaded the file into blob - weather/latest.csv
+[2024-10-18T07:55:48] INFO [weather.cleanup:142] Removing folder at ./files

@@ -155,7 +155,7 @@ class ETL:
                     )
                     file_name = (
                         f"{datetime.now().strftime('%d.%m.%Y')}_"
-                        f"{self.azure_blob_client.container_name}."
+                        #f"{self.azure_blob_client.container_name}."
                         f"{table_name}.{file_extension}"
                     )
                     self.path = "{}/{}/{}".format(
