@@ -19,15 +19,14 @@ jobs:
         echo "## Description" >> AI_README.md
         echo "This project is an ETL pipeline for weather data into Azure Blob Storage." >> AI_README.md
         echo "## Latest Update" >> AI_README.md
-        echo "Changes were pushed on $(date)" >> AI_README.md
+        echo "Changes were pushed on $(date +"%Y-%m-%d %H:%M:%S")" >> AI_README.md
 
     - name: Commit and push changes
-      env:
-        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
         git add AI_README.md
-        git commit -m 'Generate AI_README.md with latest changes'
+        git commit -m 'Generate AI_README.md with latest changes' || echo "No changes to commit"
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
