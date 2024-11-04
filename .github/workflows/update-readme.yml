@@ -11,12 +11,18 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Update to the latest version
+
+    - name: Debug - List files
+      run: ls -la
 
     - name: Update README.md
       run: |
         echo "## Latest Update" >> README.md
         echo "Changes were pushed on $(date)" >> README.md
+
+    - name: Debug - Show README.md
+      run: cat README.md
 
     - name: Commit and push changes
       run: |
