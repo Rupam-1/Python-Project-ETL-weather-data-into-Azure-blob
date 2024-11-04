@@ -1,4 +1,4 @@
-name: Generate AI README
+name: Generate AI_README.md
 on:
   push:
     branches:
