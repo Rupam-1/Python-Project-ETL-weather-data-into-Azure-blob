@@ -1,6 +1,5 @@
 ## This is the Main ETL python script
-## Testing
-#github
+## Testing the ETL process
 
 
 from helpers.azure_blob_client import AzureBlobClient
