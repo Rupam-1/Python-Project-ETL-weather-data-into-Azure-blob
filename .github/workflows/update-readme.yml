@@ -1,4 +1,4 @@
-name: Update README
+name: Generate AI README
 
 on:
   push:
@@ -6,31 +6,27 @@ on:
       - main  # Change this to your default branch if it's not 'main'
 
 jobs:
-  update-readme:
+  generate-ai-readme:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Debug - List files
-      run: ls -la
-
-    - name: Update README.md
+    - name: Generate AI_README.md
       run: |
-        echo "## Latest Update" >> README.md
-        echo "Changes were pushed on $(date)" >> README.md
-
-    - name: Debug - Show README.md
-      run: cat README.md
+        echo "# AI Generated Project Title" > AI_README.md
+        echo "## Description" >> AI_README.md
+        echo "This project is an ETL pipeline for weather data into Azure Blob Storage." >> AI_README.md
+        echo "## Latest Update" >> AI_README.md
+        echo "Changes were pushed on $(date)" >> AI_README.md
 
     - name: Commit and push changes
       env:
-        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
-        git add README.md
-        git commit -m 'Update README.md with latest changes'
+        git add AI_README.md
+        git commit -m 'Generate AI_README.md with latest changes'
         git push
