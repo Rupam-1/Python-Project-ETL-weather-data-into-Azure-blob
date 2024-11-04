@@ -21,10 +21,10 @@ jobs:
         echo "## Latest Update" >> AI_README.md
         echo "Changes were pushed on $(date +"%Y-%m-%d %H:%M:%S")" >> AI_README.md
 
-    - name: Commit and push changes
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add AI_README.md
-        git commit -m 'Generate AI_README.md with latest changes' || echo "No changes to commit"
-        git push https://x-access-token:${{ secrets.PAT_TOKEN}}@github.com/Rupam-1/Python-Project-ETL-weather-data-into-Azure-blob.git HEAD:main
+        - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add AI_README.md
+          git commit -m 'Generate AI_README.md with latest changes' || echo "No changes to commit"
+          git push https://x-access-token:${{secrets.PAT_TOKEN}}@github.com/Rupam-1/Python-Project-ETL-weather-data-into-Azure-blob.git HEAD:main
