@@ -26,4 +26,4 @@ jobs:
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git add AI_README.md
         git commit -m 'Generate AI_README.md with latest changes' || echo "No changes to commit"
-        git push https://x-access-token:${{secrets.PAT_TOKEN}}@github.com/Rupam-1/Python-Project-ETL-weather-data-into-Azure-blob.git HEAD:main
+        git push https://x-access-token:${{secrets.PAT_TOKEN}}@https://github.com/Rupam-1/Python-Project-ETL-weather-data-into-Azure-blob HEAD:main
