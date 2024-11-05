@@ -17,10 +17,8 @@ jobs:
         echo "This project is an ETL pipeline for weather data into Azure Blob Storage." >> AI_README.md
         echo "## Latest Update" >> AI_README.md
         echo "Changes were pushed on $(date +"%Y-%m-%d %H:%M:%S")" >> AI_README.md
-        echo "## Latest Commit" >> AI_README.md
-        echo "$(git log -1 --pretty=format:'%h - %s (%ci)')" >> AI_README.md
         echo "## Changes in the Latest Push" >> AI_README.md
-        git log -1 --name-only --pretty=format:"" >> AI_README.md
+        git log -1 --name-only --pretty=format:"" | tail -n +2 | while read file; do echo "- $file" >> AI_README.md; done
 
     - name: Commit and push changes
       env:
