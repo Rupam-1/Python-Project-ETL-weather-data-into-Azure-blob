@@ -6,11 +6,7 @@
 This project is an ETL pipeline for weather data into Azure Blob Storage.
 It includes the following components:
 
-### .\generate_readme.py
-This project is an ETL pipeline for weather data into Azure Blob Storage.
-It includes the following components:
-
-### .\weather-etl.py
+### ./weather-etl.py
 Constructor method
 
 - **__init__(self, crontimeinhhmmss)**: Constructor method
@@ -42,7 +38,40 @@ Constructor method
 
 - **cleanup(self)**: Responsible for cleaning up the connections and resources
 
-### .\helpers\azure_blob_client.py
+### ./generate_readme.py
+This project is an ETL pipeline for weather data into Azure Blob Storage.
+It includes the following components:
+
+### ./helpers/weather_client.py
+Initializes the DummyAPIClient with user credentials and logging setup.
+
+        Parameters:
+            - api_key: The API key for getting the weather data.
+            - weather_url: The URL of the weather API.
+            - lat: Latitude.
+            - lon: Longitude.
+            - units: Units of measurement (e.g., metric(for Celcius), imperial(for Farenheit))
+            - logger_name: Name of the logger.
+            - account: Account information.
+            - crontimeinhhmmss: Cron time in hhmmss format.
+
+- **__init__(
+        self, api_key, weather_url, lat, lon, units, logger_name, account, crontimeinhhmmss, **kwargs
+    )**: Initializes the DummyAPIClient with user credentials and logging setup.
+
+        Parameters:
+            - api_key: The API key for getting the weather data.
+            - weather_url: The URL of the weather API.
+            - lat: Latitude.
+            - lon: Longitude.
+            - units: Units of measurement (e.g., metric(for Celcius), imperial(for Farenheit))
+            - logger_name: Name of the logger.
+            - account: Account information.
+            - crontimeinhhmmss: Cron time in hhmmss format.
+
+### ./helpers/__init__.py
+
+### ./helpers/azure_blob_client.py
 Constructor method which captures all the required information to
         make Azure blob connection.
 
@@ -111,7 +140,7 @@ Constructor method which captures all the required information to
         Parameters:
             - dir_path: Path to the directory to delete (string).
 
-### .\helpers\create_file_helper.py
+### ./helpers/create_file_helper.py
 Responsible for writing given records to a CSV file at the given path.
 
     Parameters:
@@ -159,7 +188,7 @@ Responsible for writing given records to a CSV file at the given path.
     Returns:
         - Generator yielding individual records (dict).
 
-### .\helpers\logging_client.py
+### ./helpers/logging_client.py
 Used to check if the classs has a object already instanitated.
         If there is already a object to that class it wont create a new one
         instead it will return the one which is already generated.
@@ -170,38 +199,8 @@ Used to check if the classs has a object already instanitated.
         instead it will return the one which is already generated.
         Else it will create a new object and would return the newly created one
 
-### .\helpers\weather_client.py
-Initializes the DummyAPIClient with user credentials and logging setup.
-
-        Parameters:
-            - api_key: The API key for getting the weather data.
-            - weather_url: The URL of the weather API.
-            - lat: Latitude.
-            - lon: Longitude.
-            - units: Units of measurement (e.g., metric(for Celcius), imperial(for Farenheit))
-            - logger_name: Name of the logger.
-            - account: Account information.
-            - crontimeinhhmmss: Cron time in hhmmss format.
-
-- **__init__(
-        self, api_key, weather_url, lat, lon, units, logger_name, account, crontimeinhhmmss, **kwargs
-    )**: Initializes the DummyAPIClient with user credentials and logging setup.
-
-        Parameters:
-            - api_key: The API key for getting the weather data.
-            - weather_url: The URL of the weather API.
-            - lat: Latitude.
-            - lon: Longitude.
-            - units: Units of measurement (e.g., metric(for Celcius), imperial(for Farenheit))
-            - logger_name: Name of the logger.
-            - account: Account information.
-            - crontimeinhhmmss: Cron time in hhmmss format.
-
-### .\helpers\__init__.py
-
 
 ## Latest Update
-Changes were pushed on 2024-11-07 06:44:26
+Changes were pushed on 2024-11-07 06:45:27
 
 ## Changes in the Latest Push
-- AI_README.md
