@@ -1,6 +1,4 @@
 ## This is the Main ETL python script
-## Testing the ETL process
-#gfggfggf
 
 from helpers.azure_blob_client import AzureBlobClient
 from helpers.create_file_helper import write_csv
