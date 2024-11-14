@@ -201,6 +201,6 @@ Used to check if the classs has a object already instanitated.
 
 
 ## Latest Update
-Changes were pushed on 2024-11-07 06:45:27
+Changes were pushed on 2024-11-14 15:51:37
 
 ## Changes in the Latest Push
