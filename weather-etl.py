@@ -4,6 +4,9 @@ from helpers.azure_blob_client import AzureBlobClient
 from helpers.create_file_helper import write_csv
 from helpers.logging_client import LoggerManager
 from helpers.weather_client import WeatherClient
+from overview_md_github import create_overview
+from datetime import datetime
+from uuid import uuid4
 
 import configparser
 import logging
@@ -35,6 +38,8 @@ class ETL:
         self.read()
         self.create()
         self.load()
+        self.overview()
+        self.cleanup()
 
     def read(self):
         """
@@ -51,6 +56,9 @@ class ETL:
         self.logger, self.log_location = LoggerManager.getLogger(
             self.logger_name, self.account, self.crontimeinhhmmss, location=True
         )
+        
+        self.github_token = config["github"]["github_token"]
+        self.github_repo = config["github"]["github_repo"]
 
         self.azure_blob_conn_params = config[f"azure_blob_{self.account}"]
         self.azure_blob_conn_params["logger_name"] = self.logger_name
@@ -97,12 +105,12 @@ class ETL:
                 status = "FAIL"
                 exceptions.append(str(e))
         
-        if self.dry_run.lower() == "false":
-            self.cleanup()
-        else:
-            print(
-                "***** Not removing locally files, As it is runnning in dry mode *****"
-            )
+        # if self.dry_run.lower() == "false":
+        #     self.cleanup()
+        # else:
+        #     print(
+        #         "***** Not removing locally files, As it is runnning in dry mode *****"
+        #     )
         
     def upload_files_from_dir(
         self, container_name, dir_path, table_name, file_extension
@@ -188,6 +196,14 @@ class ETL:
             self.logger.exception(e.args)
             print(e.args)
 
+    def overview(self):
+        """
+        Responsible for creating dummy data (first 10 rows) in Github
+        """
+        print("Creating Overview.md")
+        create_overview(os.path.basename(os.path.dirname(os.path.abspath(__file__))), self.github_token, self.github_repo)
+        print("Overview.md created successfully")
+        
     def cleanup(self):
         """
         Responsible for cleaning up the connections and resources

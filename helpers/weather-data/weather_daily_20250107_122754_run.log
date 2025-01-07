@@ -1,0 +1,8 @@
+[2025-01-07T12:27:54] INFO [weather.get_connection:61] Establishing connection to Azure Blob using account name: rupamtesting
+[2025-01-07T12:27:54] INFO [weather.get_connection:70] Connection successful to blob
+[2025-01-07T12:27:55] INFO [weather.create_container:92] The container with the given name: current-weather already exists. Not creating again.
+[2025-01-07T12:27:55] INFO [weather.get_data:42] Fetching weather data from the url : https://api.openweathermap.org/data/2.5/weather
+[2025-01-07T12:27:56] ERROR [weather.get_data:52] Failed to fetch data. Status code: 400
+[2025-01-07T12:27:56] INFO [weather.upload_azure:143] Length of records is: 0
+[2025-01-07T12:27:56] INFO [weather.upload_azure:192] There are no records for the table - weather
+[2025-01-07T12:27:56] INFO [weather.cleanup:142] Removing folder at ./files

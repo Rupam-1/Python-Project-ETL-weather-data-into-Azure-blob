@@ -1,0 +1,14 @@
+[2025-01-07T13:39:14] INFO [weather.get_connection:61] Establishing connection to Azure Blob using account name: rupamtesting
+[2025-01-07T13:39:14] INFO [weather.get_connection:70] Connection successful to blob
+[2025-01-07T13:39:16] INFO [weather.create_container:92] The container with the given name: current-weather already exists. Not creating again.
+[2025-01-07T13:39:16] INFO [weather.get_data:42] Fetching weather data from the url : https://api.openweathermap.org/data/2.5/weather
+[2025-01-07T13:39:16] INFO [weather.get_data:46] Response status: 200
+[2025-01-07T13:39:16] INFO [weather.get_data:47] Data fetched successfully...
+[2025-01-07T13:39:16] INFO [weather.get_data:49] Length of data : 13
+[2025-01-07T13:39:16] INFO [weather.upload_azure:143] Length of records is: 13
+[2025-01-07T13:39:16] INFO [weather.write_csv:44] Data writing in a JSON file
+[2025-01-07T13:39:16] INFO [weather.write_csv:48] Data successfully written to ./files/weather/07.01.2025_weather.csv
+[2025-01-07T13:39:17] INFO [weather.create_container:92] The container with the given name: current-weather already exists. Not creating again.
+[2025-01-07T13:39:17] INFO [weather.upload_file:133] Uploaded the file into blob - weather/07.01.2025_weather.csv
+[2025-01-07T13:39:17] INFO [weather.upload_file:133] Uploaded the file into blob - weather/latest.csv
+[2025-01-07T13:39:17] INFO [weather.cleanup:142] Removing folder at ./files
